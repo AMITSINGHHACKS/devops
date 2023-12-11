@@ -12,5 +12,15 @@ pipeline {
             }
 
         }
+        stage('checking docker images') {
+            steps {
+                sh 'docker build -t web2'
+            }
+        }
+        stage('checking docker images') {
+            steps {
+                sh 'docker images -a'
+            }
+        }
     }
 }
