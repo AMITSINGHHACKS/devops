@@ -18,7 +18,7 @@ pipeline {
         }
         stage('remove image') {
             steps {
-                sh 'docker rmi website'
+                sh 'docker rmi -f website'
             }
         }
         stage('Build') {
@@ -28,7 +28,7 @@ pipeline {
         }
         stage('Run Container') {
             steps {
-                sh 'docker run -it -d -p 8082:80 website --name website'
+                sh 'docker run -it -d --name website -p 8082:80 website'
             }
         }
     }
