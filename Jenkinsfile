@@ -8,7 +8,7 @@ pipeline {
         }
         stage('checking docker images') {
             steps {
-                sh 'docker images'
+                sh 'docker images -a'
             }
         }
         stage('checking docker containers') {
