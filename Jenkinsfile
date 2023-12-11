@@ -3,12 +3,12 @@ pipeline {
     stages {
         stage('checking docker images') {
             steps {
-                sh 'sudo docker images -a'
+                sh 'docker images -a'
             }
         }
         stage('checking docker containers') {
             steps {
-                sh 'sudo docker ps -a'
+                sh 'docker ps -a'
             }
 
         }
