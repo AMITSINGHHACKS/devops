@@ -28,7 +28,7 @@ pipeline {
         }
         stage('Run Container') {
             steps {
-                sh 'docker run -it -d --name website:v2 -p 8082:80 website'
+                sh 'docker run -it -d --name website:Latest -p 8082:80 website'
             }
         }
     }
