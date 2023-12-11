@@ -11,11 +11,6 @@ pipeline {
                 sh 'docker ps -a'
             }
         }
-        stage('Stopping existing containers') {
-            steps {
-                sh 'docker stop website'
-            }
-        }
         stage('remove image') {
             steps {
                 sh 'docker rmi -f website'
