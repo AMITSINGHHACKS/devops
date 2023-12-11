@@ -10,16 +10,25 @@ pipeline {
             steps {
                 sh 'docker ps -a'
             }
-
         }
-        stage('checking docker images') {
+        stage('Stopping existing containers') {
             steps {
-                sh 'docker build -t web2'
+                sh 'docker stop website'
             }
         }
-        stage('checking docker images') {
+        stage('remove image') {
             steps {
-                sh 'docker images -a'
+                sh 'docker rmi website'
+            }
+        }
+        stage('Build') {
+            steps {
+                sh 'docker build -t website .'
+            }
+        }
+        stage('Run Container') {
+            steps {
+                sh 'docker run -it -d -p 8082:80 website --name website'
             }
         }
     }
