@@ -45,6 +45,8 @@ pipeline {
             channel: 'pipeline-notifications',
             message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} \n build ${env.BUILD_NUMBER} \n More info at: ${env.BUILD_URL}"
         )
+        mail bcc: '', body: '''$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS:
+Check console output at $BUILD_URL to view the results.''', cc: 'aniketsingh78698@gmail.com', from: '', replyTo: '', subject: '$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!', to: 'as216889@gmail.com'
     }
 }
 }
