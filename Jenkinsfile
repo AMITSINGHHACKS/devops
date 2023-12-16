@@ -24,7 +24,7 @@ pipeline {
         }
         stage('Stopping Existing container unwanted') {
             steps {
-                sh 'docker stop -f website1'
+                sh 'docker stop website1'
             }
         }
 	stage('Pruning') {
