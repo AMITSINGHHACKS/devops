@@ -37,11 +37,15 @@ pipeline {
                 sh 'docker run -it -d --name website1 -p 8082:80 website'
             }
         }
-        stage('Push image') {
-            withDockerRegistry([ credentialsId: "dockerhub", url: "truthaniket/jenkinsdevops" ]) {
-                dockerImage.push()
+        stage('Deploy Image') {
+            steps{
+               script {
+                  docker.withRegistry( 'https://hub.docker.com/repository/docker/truthaniket/jenkinsdevops/', dockerhub ) {
+                  dockerImage.push()
+                }
+              }
             }
-        }
+        } 
     }
     post {
     always {
