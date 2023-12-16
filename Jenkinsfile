@@ -41,7 +41,7 @@ pipeline {
             steps{
                script {
                   docker.withRegistry( '', 'dockerhub') {
-                  sh 'docker push truthaniket/jenkinsdevops:latest'
+                  sh 'docker push website1:latest'
                 }
               }
             }
