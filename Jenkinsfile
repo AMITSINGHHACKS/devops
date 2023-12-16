@@ -22,6 +22,11 @@ pipeline {
                 sh 'docker build -t truthaniket/jenkinsdevops:latest .'
             }
         }
+        stage('Stopping Existing container unwanted') {
+            steps {
+                sh 'docker stop -f website1'
+            }
+        }
 	stage('Pruning') {
             steps {
                 sh 'docker container prune -f'
