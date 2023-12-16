@@ -37,6 +37,11 @@ pipeline {
                 sh 'docker run -it -d --name website1 -p 8082:80 website'
             }
         }
+        stage('Push image') {
+            withDockerRegistry([ credentialsId: "dockerhub", url: "truthaniket/jenkinsdevops" ]) {
+                dockerImage.push()
+            }
+        }
     }
     post {
     always {
