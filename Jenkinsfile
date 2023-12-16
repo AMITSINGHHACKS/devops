@@ -40,7 +40,7 @@ pipeline {
         stage('Deploy Image') {
             steps{
                script {
-                  docker.withRegistry( 'https://hub.docker.com/repository/docker/truthaniket/jenkinsdevops/', dockerhub ) {
+                  docker.withRegistry( 'https://hub.docker.com/repository/docker/truthaniket/jenkinsdevops/', 'dockerhub' ) {
                   dockerImage.push()
                 }
               }
