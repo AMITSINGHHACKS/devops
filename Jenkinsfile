@@ -34,7 +34,7 @@ pipeline {
         }
         stage('Run Container') {
             steps {
-                sh 'docker run -it -d --name website1 -p 8082:80 website'
+                sh 'docker run -it -d --name website1 -p 8082:80 truthaniket/jenkinsdevops:latest'
             }
         }
         stage('Deploy Image') {
