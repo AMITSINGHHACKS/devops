@@ -14,7 +14,7 @@ pipeline {
         }
         stage('remove image') {
             steps {
-                sh 'docker rmi -f website '
+                sh 'docker rmi -f truthaniket/jenkinsdevops:latest '
             }
         }
         stage('Build') {
