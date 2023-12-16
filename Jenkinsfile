@@ -40,7 +40,7 @@ pipeline {
         stage('Deploy Image') {
             steps{
                script {
-                  docker.withRegistry( 'https://hub.docker.com/repository/docker/truthaniket/jenkinsdevops/', 'dockerhub','--password-stdin' ) {
+                  docker.withRegistry( 'https://hub.docker.com/repository/docker/truthaniket/jenkinsdevops/', 'dockerhub',--password-stdin ) {
                   dockerImage.push()
                 }
               }
