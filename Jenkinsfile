@@ -19,7 +19,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'docker build -t website .'
+                sh 'docker build -t truthaniket/jenkinsdevops:latest .'
             }
         }
 	stage('stopping unwanted containers') {
@@ -41,7 +41,7 @@ pipeline {
             steps{
                script {
                   docker.withRegistry( '', 'dockerhub') {
-                  sh 'docker push website1:latest'
+                  sh 'docker push truthaniket/jenkinsdevops:latest'
                 }
               }
             }
