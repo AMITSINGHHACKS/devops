@@ -32,11 +32,6 @@ pipeline {
                 sh 'docker container prune -f'
             }
         }
-        stage('Run Container') {
-            steps {
-                sh 'docker run -it -d --name website1 -p 8082:80 truthaniket/jenkinsdevops:latest'
-            }
-        }
         stage('Deploy Image') {
             steps{
                script {
@@ -44,6 +39,12 @@ pipeline {
                   sh 'docker push truthaniket/jenkinsdevops:latest'
                 }
               }
+            }
+        }
+        stage('Deployment on Kubernetes') {
+            steps {
+                sh 'kubectl apply -f Kubernetes_deployment.yml'
+                sh 'kubectl apply -f servicehtml.yml'
             }
         } 
     }
